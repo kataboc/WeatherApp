@@ -1,0 +1,45 @@
+body {
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+form {
+  margin-top: 20px;
+}
+.card-today {
+  text-align: center;
+  font-size: 40px;
+}
+#location {
+  font-size: 20px;
+}
+.card-today-icon {
+  font-size: 200px;
+  color: orange;
+}
+#today-date {
+  font-size: 30px;
+}
+#back-to-you {
+  display: block;
+  text-align: center;
+}
+.card-title {
+  font-family: "Signika", sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+}
+.card {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  font-size: 20px;
+  text-align: center;
+  margin: 200px 0 0 40px;
+}
+.card-icon {
+  font-size: 40px;
+  color: grey;
+}
+h6 {
+  font-family: "Sniglet", cursive;
+  font-size: 12px;
+  font-weight: 100;
+  color: grey;
+}

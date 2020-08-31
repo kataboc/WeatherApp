@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="src/styles.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="src/index.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300&family=Sniglet&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/dd8625bb89.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <form class="form-row">
+      <div class="col-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Your city" aria-describedby="button-addon1"
+            id="your-city" />
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary mb-2" id="button-addon1">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-4">
+        <div class="card-today">
+          <div class="card-body">
+            <h2 class="card-title">Your current position</h2>
+            <h5 class="card-today-icon"><i class="fas fa-sun"></i></h5>
+            <p class="card-today-text">
+            <div id="today-date">
+              Today
+            </div>
+            <span id="temperature">20</span> °<span id="degrees">C</span>
+          </div>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-info" id="button-celsius">°C</button>
+            <button type="button" class="btn btn-info" id="button-fahrenheit">°F</button>
+          </div>
+          </p>
+        </div>
+        <a href="#" id="back-to-you">Back to your current position</a>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="card" style="width: 90px;">
+        <div class="card-body">
+          <h5 class="card-icon"><i class="fas fa-cloud-sun-rain"></i></h5>
+          <p class="card-text">
+            <br />
+            20.10
+            <br />
+            18°C
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="card" style="width: 90px;">
+        <div class="card-body">
+          <h5 class="card-icon"><i class="fas fa-cloud-sun"></i></h5>
+          <p class="card-text">
+            <br />
+            21.10
+            <br />
+            16°C
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="card" style="width: 90px;">
+        <div class="card-body">
+          <h5 class="card-icon"><i class="fas fa-cloud"></i></h5>
+          <p class="card-text">
+            <br />
+            22.10
+            <br />
+            18°C
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="card" style="width: 90px;">
+        <div class="card-body">
+          <h5 class="card-icon">
+            <i class="fas fa-cloud-showers-heavy"></i>
+          </h5>
+          <p class="card-text">
+            <br />
+            23.10
+            <br />
+            19°C
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="card" style="width: 90px;">
+        <div class="card-body">
+          <h5 class="card-icon"><i class="fas fa-cloud-sun"></i></h5>
+          <p class="card-text">
+            <br />
+            24.10
+            <br />
+            18°C
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class="card" style="width: 90px;">
+        <div class="card-body">
+          <h5 class="card-icon"><i class="fas fa-sun"></i></h5>
+          <p class="card-text">
+            <br />
+            25.10
+            <br />
+            12°C
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <h6>
+    <i>Coded by Katarzyna Boćkowska</i>
+  </h6>
+</body>
+
+</html>
