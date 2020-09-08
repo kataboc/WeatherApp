@@ -4,9 +4,18 @@ body {
 form {
   margin-top: 20px;
 }
+.col {
+  padding: 5;
+  margin: 0;
+}
 .card-today {
   text-align: center;
   font-size: 40px;
+}
+.card-title {
+  font-family: "Signika", sans-serif;
+  font-size: 45px;
+  font-weight: bold;
 }
 #location {
   font-size: 20px;
@@ -18,24 +27,24 @@ form {
 #today-date {
   font-size: 30px;
 }
+.temperatureToday {
+  font-weight: 500;
+}
 #back-to-you {
   display: block;
   text-align: center;
 }
-.card-title {
-  font-family: "Signika", sans-serif;
-  font-size: 45px;
-  font-weight: bold;
-}
-.card {
-  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-  font-size: 20px;
+.card-f {
+  margin: 50px 0;
   text-align: center;
-  margin: 200px 0 0 40px;
 }
 .card-icon {
-  font-size: 40px;
+  font-size: 60px;
   color: grey;
+}
+.temperature {
+  font-size: 25px;
+  font-weight: 500;
 }
 h6 {
   font-family: "Sniglet", cursive;
