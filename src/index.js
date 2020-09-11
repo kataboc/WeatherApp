@@ -68,7 +68,7 @@ function fahrenheitCalc(event) {
   let fahrenheitTom2 = Math.round(tomorrow2Temp.innerHTML * 1.8 + 32);
   let fahrenheitTom3 = Math.round(tomorrow3Temp.innerHTML * 1.8 + 32);
   let fahrenheitTom4 = Math.round(tomorrow4Temp.innerHTML * 1.8 + 32);
-  if (degree === "F") {
+  if (degree.innerHTML === "F") {
     event.preventDefault();
   } else {
     temperature.innerHTML = `${fahrenheit}`;
@@ -96,7 +96,7 @@ function celsiusCalc(event) {
   let celsiusTom2 = Math.round((tomorrow2Temp.innerHTML - 32) / 1.8);
   let celsiusTom3 = Math.round((tomorrow3Temp.innerHTML - 32) / 1.8);
   let celsiusTom4 = Math.round((tomorrow4Temp.innerHTML - 32) / 1.8);
-  if (degree === "C") {
+  if (degree.innerHTML === "C") {
     event.preventDefault();
   } else {
     temperature.innerHTML = `${celsius}`;
@@ -168,6 +168,7 @@ function showWeatherHere(response) {
   let temperature = Math.round(response.data.main.temp);
   let place = response.data.name;
   currentTemperature.innerHTML = `${temperature}`;
+  degree.innerHTML = "C";
   let location = document.querySelector("h2");
   location.innerHTML = `${place}`;
   let apiKey = "e04e51dd1592166f33d5c79d198d4731";
@@ -364,6 +365,11 @@ function showIconForecastHere(response) {
 }
 
 function showForecastHere(response) {
+  degrees[0].innerHTML = "C";
+  degrees[1].innerHTML = "C";
+  degrees[2].innerHTML = "C";
+  degrees[3].innerHTML = "C";
+  degrees[4].innerHTML = "C";
   let tomorrowDate = response.data.list[7].dt_txt;
   let tomorrowTemperature = Math.round(response.data.list[7].main.temp);
   tomorrow.innerHTML = `${tomorrowDate}`;
@@ -443,6 +449,7 @@ function displayCityWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let place = response.data.name;
   currentTemperature.innerHTML = `${temperature}`;
+  degree.innerHTML = "C";
   let location = document.querySelector("h2");
   location.innerHTML = `${place}`;
 }
@@ -643,22 +650,32 @@ function displayCityForecastIcon(response) {
 }
 
 function displayCityForecast(response) {
+  degrees[0].innerHTML = "C";
+  degrees[1].innerHTML = "C";
+  degrees[2].innerHTML = "C";
+  degrees[3].innerHTML = "C";
+  degrees[4].innerHTML = "C";
   console.log(response.data);
   let tomorrowDate = response.data.list[7].dt_txt;
-  let tomorrowTemp = Math.round(response.data.list[7].main.temp);
-  tomorrow.innerHTML = `<br /> ${tomorrowDate}<br /> ${tomorrowTemp}°C`;
+  let tomorrowTemperature = Math.round(response.data.list[7].main.temp);
+  tomorrow.innerHTML = `${tomorrowDate}`;
+  tomorrowTemp.innerHTML = `${tomorrowTemperature}`;
   let tomorrow1Date = response.data.list[15].dt_txt;
-  let tomorrow1Temp = Math.round(response.data.list[15].main.temp);
-  tomorrow1.innerHTML = `<br /> ${tomorrow1Date}<br /> ${tomorrow1Temp}°C`;
+  let tomorrow1Temperature = Math.round(response.data.list[15].main.temp);
+  tomorrow1.innerHTML = `${tomorrow1Date}`;
+  tomorrow1Temp.innerHTML = `${tomorrow1Temperature}`;
   let tomorrow2Date = response.data.list[23].dt_txt;
-  let tomorrow2Temp = Math.round(response.data.list[23].main.temp);
-  tomorrow2.innerHTML = `<br /> ${tomorrow2Date}<br /> ${tomorrow2Temp}°C`;
+  let tomorrow2Temperature = Math.round(response.data.list[23].main.temp);
+  tomorrow2.innerHTML = `${tomorrow2Date}`;
+  tomorrow2Temp.innerHTML = `${tomorrow2Temperature}`;
   let tomorrow3Date = response.data.list[31].dt_txt;
-  let tomorrow3Temp = Math.round(response.data.list[31].main.temp);
-  tomorrow3.innerHTML = `<br /> ${tomorrow3Date}<br /> ${tomorrow3Temp}°C`;
+  let tomorrow3Temperature = Math.round(response.data.list[31].main.temp);
+  tomorrow3.innerHTML = `${tomorrow3Date}`;
+  tomorrow3Temp.innerHTML = `${tomorrow3Temperature}`;
   let tomorrow4Date = response.data.list[39].dt_txt;
-  let tomorrow4Temp = Math.round(response.data.list[39].main.temp);
-  tomorrow4.innerHTML = `<br /> ${tomorrow4Date}<br /> ${tomorrow4Temp}°C`;
+  let tomorrow4Temperature = Math.round(response.data.list[39].main.temp);
+  tomorrow4.innerHTML = `${tomorrow4Date}`;
+  tomorrow4Temp.innerHTML = `${tomorrow4Temperature}`;
 }
 
 let searchButton = document.querySelector("#button-addon1");
