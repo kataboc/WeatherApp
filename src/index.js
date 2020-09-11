@@ -40,7 +40,6 @@ todayDate.innerHTML = formatDate(new Date());
 let temperature = document.querySelector("#temperature");
 let degree = document.querySelector("#degree");
 let degrees = document.querySelectorAll("span.degrees");
-console.log(degrees);
 let buttonCelsius = document.querySelector("#button-celsius");
 let buttonFahrenheit = document.querySelector("#button-fahrenheit");
 let currentTemperature = document.querySelector("#temperature");
@@ -54,6 +53,12 @@ let tomorrow1Temp = document.querySelector("#tomorrow1Temp");
 let tomorrow2Temp = document.querySelector("#tomorrow2Temp");
 let tomorrow3Temp = document.querySelector("#tomorrow3Temp");
 let tomorrow4Temp = document.querySelector("#tomorrow4Temp");
+let todayIcon = document.querySelector("#todayIcon");
+let tomorrowIcon = document.querySelector("#tomorrowIcon");
+let tomorrow1Icon = document.querySelector("#tomorrow1Icon");
+let tomorrow2Icon = document.querySelector("#tomorrow2Icon");
+let tomorrow3Icon = document.querySelector("#tomorrow3Icon");
+let tomorrow4Icon = document.querySelector("#tomorrow4Icon");
 
 function fahrenheitCalc(event) {
   event.preventDefault();
@@ -115,9 +120,39 @@ function myPosition(position) {
   let lon = position.coords.longitude;
   let apiKey = "e04e51dd1592166f33d5c79d198d4731";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showIconHere);
   axios.get(apiUrl).then(showWeatherHere);
 }
 navigator.geolocation.getCurrentPosition(myPosition);
+
+function showIconHere(response) {
+  let weatherConditionNow = response.data.weather[0].main;
+  if (weatherConditionNow === "Clear") {
+    todayIcon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionNow === "Clouds") {
+      todayIcon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionNow === "Drizzle") {
+        todayIcon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionNow === "Rain") {
+          todayIcon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionNow === "Thunderstorm") {
+            todayIcon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionNow === "Snow") {
+              todayIcon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              todayIcon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 function showWeatherHere(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -127,11 +162,144 @@ function showWeatherHere(response) {
   location.innerHTML = `${place}`;
   let apiKey = "e04e51dd1592166f33d5c79d198d4731";
   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${place}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showIconForecastHere);
   axios.get(apiUrl).then(showForecastHere);
 }
 
+function showIconForecastHere(response) {
+  let weatherConditionTomorrow = response.data.list[7].weather[0].main;
+  if (weatherConditionTomorrow === "Clear") {
+    tomorrowIcon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow === "Clouds") {
+      tomorrowIcon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow === "Drizzle") {
+        tomorrowIcon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow === "Rain") {
+          tomorrowIcon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow === "Thunderstorm") {
+            tomorrowIcon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow === "Snow") {
+              tomorrowIcon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrowIcon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+  let weatherConditionTomorrow1 = response.data.list[15].weather[0].main;
+  if (weatherConditionTomorrow1 === "Clear") {
+    tomorrow1Icon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow1 === "Clouds") {
+      tomorrow1Icon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow1 === "Drizzle") {
+        tomorrow1Icon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow1 === "Rain") {
+          tomorrow1Icon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow1 === "Thunderstorm") {
+            tomorrow1Icon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow1 === "Snow") {
+              tomorrow1Icon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrow1Icon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+  let weatherConditionTomorrow2 = response.data.list[23].weather[0].main;
+  if (weatherConditionTomorrow2 === "Clear") {
+    tomorrow2Icon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow2 === "Clouds") {
+      tomorrow2Icon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow2 === "Drizzle") {
+        tomorrow2Icon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow2 === "Rain") {
+          tomorrow2Icon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow2 === "Thunderstorm") {
+            tomorrow2Icon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow2 === "Snow") {
+              tomorrow2Icon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrow2Icon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+  let weatherConditionTomorrow3 = response.data.list[31].weather[0].main;
+  if (weatherConditionTomorrow3 === "Clear") {
+    tomorrow3Icon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow3 === "Clouds") {
+      tomorrow3Icon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow3 === "Drizzle") {
+        tomorrow3Icon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow3 === "Rain") {
+          tomorrow3Icon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow3 === "Thunderstorm") {
+            tomorrow3Icon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow3 === "Snow") {
+              tomorrow3Icon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrow3Icon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+  let weatherConditionTomorrow4 = response.data.list[39].weather[0].main;
+  if (weatherConditionTomorrow4 === "Clear") {
+    tomorrow4Icon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow4 === "Clouds") {
+      tomorrow4Icon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow4 === "Drizzle") {
+        tomorrow4Icon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow4 === "Rain") {
+          tomorrow4Icon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow4 === "Thunderstorm") {
+            tomorrow4Icon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow4 === "Snow") {
+              tomorrow4Icon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrow4Icon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 function showForecastHere(response) {
-  console.log(response.data);
   let tomorrowDate = response.data.list[7].dt_txt;
   let tomorrowTemperature = Math.round(response.data.list[7].main.temp);
   tomorrow.innerHTML = `${tomorrowDate}`;
@@ -163,7 +331,37 @@ function apply(event) {
 function searchNow(city) {
   let apiKey = "e04e51dd1592166f33d5c79d198d4731";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayCityIcon);
   axios.get(apiUrl).then(displayCityWeather);
+}
+
+function displayCityIcon(response) {
+  let weatherConditionNow = response.data.weather[0].main;
+  if (weatherConditionNow === "Clear") {
+    todayIcon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionNow === "Clouds") {
+      todayIcon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionNow === "Drizzle") {
+        todayIcon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionNow === "Rain") {
+          todayIcon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionNow === "Thunderstorm") {
+            todayIcon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionNow === "Snow") {
+              todayIcon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              todayIcon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 function displayCityWeather(response) {
@@ -177,7 +375,142 @@ function displayCityWeather(response) {
 function searchFuture(city) {
   let apiKey = "e04e51dd1592166f33d5c79d198d4731";
   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayCityForecastIcon);
   axios.get(apiUrl).then(displayCityForecast);
+}
+
+function displayCityForecastIcon(response) {
+  console.log(response.data.list[7].weather[0].main);
+  let weatherConditionTomorrow = response.data.list[7].weather[0].main;
+  if (weatherConditionTomorrow === "Clear") {
+    tomorrowIcon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow === "Clouds") {
+      tomorrowIcon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow === "Drizzle") {
+        tomorrowIcon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow === "Rain") {
+          tomorrowIcon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow === "Thunderstorm") {
+            tomorrowIcon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow === "Snow") {
+              tomorrowIcon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrowIcon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+  let weatherConditionTomorrow1 = response.data.list[15].weather[0].main;
+  if (weatherConditionTomorrow1 === "Clear") {
+    tomorrow1Icon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow1 === "Clouds") {
+      tomorrow1Icon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow1 === "Drizzle") {
+        tomorrow1Icon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow1 === "Rain") {
+          tomorrow1Icon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow1 === "Thunderstorm") {
+            tomorrow1Icon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow1 === "Snow") {
+              tomorrow1Icon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrow1Icon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+  let weatherConditionTomorrow2 = response.data.list[23].weather[0].main;
+  if (weatherConditionTomorrow2 === "Clear") {
+    tomorrow2Icon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow2 === "Clouds") {
+      tomorrow2Icon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow2 === "Drizzle") {
+        tomorrow2Icon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow2 === "Rain") {
+          tomorrow2Icon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow2 === "Thunderstorm") {
+            tomorrow2Icon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow2 === "Snow") {
+              tomorrow2Icon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrow2Icon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+  let weatherConditionTomorrow3 = response.data.list[31].weather[0].main;
+  if (weatherConditionTomorrow3 === "Clear") {
+    tomorrow3Icon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow3 === "Clouds") {
+      tomorrow3Icon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow3 === "Drizzle") {
+        tomorrow3Icon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow3 === "Rain") {
+          tomorrow3Icon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow3 === "Thunderstorm") {
+            tomorrow3Icon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow3 === "Snow") {
+              tomorrow3Icon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrow3Icon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
+  let weatherConditionTomorrow4 = response.data.list[39].weather[0].main;
+  if (weatherConditionTomorrow4 === "Clear") {
+    tomorrow4Icon.innerHTML = `<i class="fas fa-sun"></i>`;
+  } else {
+    if (weatherConditionTomorrow4 === "Clouds") {
+      tomorrow4Icon.innerHTML = `<i class="fas fa-cloud"></i>`;
+    } else {
+      if (weatherConditionTomorrow4 === "Drizzle") {
+        tomorrow4Icon.innerHTML = `<i class="fas fa-cloud-showers-heavy"></i>`;
+      } else {
+        if (weatherConditionTomorrow4 === "Rain") {
+          tomorrow4Icon.innerHTML = `<i class="fas fa-cloud-sun-rain"></i>`;
+        } else {
+          if (weatherConditionTomorrow4 === "Thunderstorm") {
+            tomorrow4Icon.innerHTML = `<i class="fas fa-bolt"></i>`;
+          } else {
+            if (weatherConditionTomorrow4 === "Snow") {
+              tomorrow4Icon.innerHTML = `<i class="fas fa-snowflake"></i>`;
+            } else {
+              tomorrow4Icon.innerHTML = `<i class="fas fa-water"></i>`;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 function displayCityForecast(response) {
@@ -204,7 +537,6 @@ let searchButton = document.querySelector("#button-addon1");
 searchButton.addEventListener("click", apply);
 
 let backToYou = document.querySelector("#back-to-you");
-
 function currentPosition() {
   navigator.geolocation.getCurrentPosition(myPosition);
 }
