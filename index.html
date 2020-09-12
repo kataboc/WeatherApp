@@ -7,7 +7,6 @@
   <title>Weather App</title>
   <link rel="stylesheet" href="src/styles.css" />
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="src/index.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300&family=Sniglet&display=swap" rel="stylesheet" />
@@ -36,12 +35,16 @@
             <h2 class="card-title">Your current position</h2>
             <h5 class="card-today-icon" id="todayIcon"><i class="fas fa-sun"></i></h5>
             <p class="card-today-text">
-            <div id="today-date">
+            <div id="weatherDescription">
+              humidity <span id="humidity">20</span>%, <span id="description">clear sky</span>, wind <span id="wind">speed</span>
+              m/s
+            </div>
+            <div id="todayDate">
               Today
             </div>
-            <div class="temperatureToday">
+            <div class="temperature-today">
               <span id="temperature">20</span> °<span id="degree">C</span></div>
-          </div>
+            </div>
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-info" id="button-celsius">°C</button>
             <button type="button" class="btn btn-info" id="button-fahrenheit">°F</button>
@@ -135,6 +138,7 @@
   <h6>
     <i>Coded by Katarzyna Boćkowska</i>
   </h6>
+  <script src="src/index.js"></script>
 </body>
 
 </html>

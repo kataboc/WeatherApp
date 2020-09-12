@@ -28,10 +28,13 @@ form {
   font-size: 200px;
   color: orange;
 }
-#today-date {
+#weatherDescription {
+  font-size: 16px;
+}
+#todayDate {
   font-size: 30px;
 }
-.temperatureToday {
+.temperature-today {
   font-weight: 500;
 }
 #back-to-you {

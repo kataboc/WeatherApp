@@ -1,4 +1,4 @@
-let todayDate = document.querySelector("#today-date");
+let todayDate = document.querySelector("#todayDate");
 let now = new Date();
 let days = [
   "Sunday",
@@ -43,6 +43,9 @@ let degrees = document.querySelectorAll("span.degrees");
 let buttonCelsius = document.querySelector("#button-celsius");
 let buttonFahrenheit = document.querySelector("#button-fahrenheit");
 let currentTemperature = document.querySelector("#temperature");
+let humidity = document.querySelector("#humidity");
+let description = document.querySelector("#description");
+let wind = document.querySelector("#wind");
 let tomorrow = document.querySelector("#tomorrow");
 let tomorrow1 = document.querySelector("#tomorrow1");
 let tomorrow2 = document.querySelector("#tomorrow2");
@@ -165,6 +168,10 @@ function showIconHere(response) {
 }
 
 function showWeatherHere(response) {
+  console.log(response.data);
+  description.innerHTML = response.data.weather[0].description;
+  wind.innerHTML = response.data.wind.speed;
+  humidity.innerHTML = response.data.main.humidity;
   let temperature = Math.round(response.data.main.temp);
   let place = response.data.name;
   currentTemperature.innerHTML = `${temperature}`;
@@ -446,6 +453,9 @@ function displayCityIcon(response) {
 }
 
 function displayCityWeather(response) {
+  description.innerHTML = response.data.weather[0].description;
+  wind.innerHTML = response.data.wind.speed;
+  humidity.innerHTML = response.data.main.humidity;
   let temperature = Math.round(response.data.main.temp);
   let place = response.data.name;
   currentTemperature.innerHTML = `${temperature}`;
